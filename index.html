@@ -1,0 +1,239 @@
+<section class="reading-trip">
+  <div class="reading-trip-wrap">
+    <h1>🌳 今日閱讀小旅行</h1>
+    <p class="intro">
+      有時候，我們不是沒有想看的書，<br>
+      只是還不知道今天適合哪一種閱讀時光。<br>
+      這個夏天，讓森林為你安排一段專屬的閱讀旅程。
+    </p>
+
+    <button class="trip-btn" onclick="generateTrip()">
+      🌿 幫我安排今天的閱讀時光
+    </button>
+
+    <div id="tripCard" class="trip-card">
+      <h2>🍃 今天的閱讀時光</h2>
+
+      <div class="trip-item">
+        <span>📍 去哪裡讀</span>
+        <p id="tripLocation"></p>
+      </div>
+
+      <div class="trip-item">
+        <span>📚 讀什麼</span>
+        <p id="tripTheme"></p>
+      </div>
+
+      <div class="trip-item">
+        <span>🎯 做什麼</span>
+        <p id="tripMission"></p>
+      </div>
+
+      <div class="trip-item">
+        <span>✨ 閱讀小提醒</span>
+        <p id="tripTip"></p>
+      </div>
+
+      <p class="seed">🌱 今天的閱讀種子已經發芽。</p>
+
+      <button class="trip-btn small" onclick="generateTrip()">
+        🔄 換一個提案
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+.reading-trip {
+  background: #f4f8ec;
+  padding: 48px 20px;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  color: #2f4633;
+}
+
+.reading-trip-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reading-trip h1 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.intro {
+  line-height: 1.9;
+  color: #5d705f;
+  margin-bottom: 28px;
+}
+
+.trip-btn {
+  background: #6a9a6f;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.trip-btn:hover {
+  transform: translateY(-2px);
+  background: #587f5d;
+}
+
+.trip-btn.small {
+  margin-top: 20px;
+  padding: 12px 24px;
+}
+
+.trip-card {
+  display: none;
+  margin-top: 32px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 32px 26px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  text-align: left;
+  animation: fadeIn 0.45s ease;
+}
+
+.trip-card h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #3f6b45;
+}
+
+.trip-item {
+  background: #f9fbf4;
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.trip-item span {
+  display: block;
+  font-weight: bold;
+  color: #4d7a52;
+  margin-bottom: 6px;
+}
+
+.trip-item p {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #2f4633;
+}
+
+.seed {
+  text-align: center;
+  margin-top: 24px;
+  color: #6a7c5f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .reading-trip {
+    padding: 36px 16px;
+  }
+
+  .reading-trip h1 {
+    font-size: 1.8rem;
+  }
+
+  .trip-card {
+    padding: 26px 20px;
+  }
+}
+</style>
+
+<script>
+const locations = [
+  "中央公園大草坪",
+  "中央公園樹蔭下",
+  "中央公園湖畔步道",
+  "綠美圖文化之森",
+  "綠美圖窗邊座位",
+  "青少年閱覽區",
+  "兒童閱覽區",
+  "數位光境附近",
+  "連通橋休憩區",
+  "家中最舒服的角落",
+  "社區公園的一張長椅",
+  "咖啡館角落"
+];
+
+const themes = [
+  "環遊世界",
+  "夏日冒險",
+  "地圖裡的祕密",
+  "森林故事",
+  "海洋與島嶼",
+  "青春成長",
+  "未來想像",
+  "城市散步",
+  "藝術靈感",
+  "自然觀察",
+  "神秘推理",
+  "奇幻旅程",
+  "人物傳記",
+  "一本從沒借過的書",
+  "一本封面吸引你的書",
+  "一本和旅行有關的書"
+];
+
+const missions = [
+  "閱讀 10 分鐘",
+  "閱讀 20 分鐘",
+  "找一句喜歡的話",
+  "發現一個新知識",
+  "找一張最喜歡的圖片",
+  "和書拍一張照片",
+  "找出一個想去的地方",
+  "推薦給未來的自己",
+  "看完一個章節",
+  "把喜歡的段落念出來",
+  "找到書中的夏天",
+  "寫下一個問題",
+  "找出一個意想不到的事實",
+  "試著讀一本平常不會選的書",
+  "把今天讀到的內容分享給一個人"
+];
+
+const tips = [
+  "閱讀沒有標準答案。",
+  "慢慢讀，也很好。",
+  "今天的風景，也是故事的一部分。",
+  "書頁翻開的地方，就是旅程開始的地方。",
+  "一本書，可以帶你去很遠的地方。",
+  "先讀一頁也算開始。",
+  "不用急著讀完，先享受這一刻。",
+  "把手機放遠一點，讓書靠近一點。",
+  "今天的閱讀，不需要有目的。",
+  "喜歡的地方，可以多停留一下。"
+];
+
+function randomItem(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
+
+function generateTrip() {
+  document.getElementById("tripLocation").textContent = randomItem(locations);
+  document.getElementById("tripTheme").textContent = randomItem(themes);
+  document.getElementById("tripMission").textContent = randomItem(missions);
+  document.getElementById("tripTip").textContent = randomItem(tips);
+
+  document.getElementById("tripCard").style.display = "block";
+}
+</script>
