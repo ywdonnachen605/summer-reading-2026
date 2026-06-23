@@ -1,7 +1,6 @@
 <section class="reading-trip">
   <div class="reading-trip-wrap">
-    <!-- 新增下面這行 Logo 圖片 -->
-    <img src="https://www.library.taichung.gov.tw/images/logo.svg" alt="活動Logo" class="trip-logo">
+<svg class="trip-logo" xmlns="https://www.library.taichung.gov.tw/images/logo.svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="M16 1a1 1 0 1 0 0 2v6h11a1 1 0 1 0 0-2H17V1h-1zm1 29a1 1 0 1 0 0 2v-6H6a1 1 0 1 0 0 2h11v2h1z"/><path fill="#ffb4a2" d="M21 21.6a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0zm-10-8.6a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0z"/><path fill="#8ecae6" d="M12 4.4a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0zM4.8 11.6a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0zm10 10a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0zm7.2 7a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0z"/><path fill="currentColor" d="M22 17.5a1 1 0 1 0 2 0v-6h-7v2a1 1 0 1 0 2 0v-1h5v5zm-12-3v-6a1 1 0 1 0-2 0v7a1 1 0 1 0 2 0v-1zm5 11.5a1 1 0 1 0-2 0v6a1 1 0 1 0 2 0v-6zm12 0a1 1 0 1 0-2 0v3h-3a1 1 0 1 0 0 2h4a1 1 0 1 0 1-1v-4z"/><path fill="#fdb9c8" d="M4.8 21.6a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0z"/><path fill="currentColor" d="M10 21.6h2a1 1 0 1 0 0-2H9v-3a1 1 0 1 0-2 0v4a1 1 0 1 0 1 1h2zm-4.4 7a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0zm1-5a1 1 0 1 0 0 2H6v3a1 1 0 1 0-2 0v-4a1 1 0 1 0 1-1h1.6zm22-19a2.6 2.6 0 1 1 5.2 0a2.6 2.6 0 0 1-5.2 0z"/></svg>
     <h3>🌳 閱讀之森—夏日閱讀探索</h3>
     <h1>🌳 今日閱讀小旅行</h1>
     <p class="intro">
@@ -59,14 +58,16 @@
   max-width: 760px;
   margin: 0 auto;
   text-align: center;
-}
-
-.trip-logo {
-  max-width: 150px;    /* 控制 Logo 的最大寬度，可以依外觀自行調整數字 */
-  height: auto;        /* 讓高度依比例自動縮放，圖片才不會變形 */
-  display: block;      /* 變成區塊元素 */
-  margin: 0 auto 15px; /* `0 auto` 讓圖片在中間置中，`15px` 讓它跟下方的字保持距離 */
 }  
+
+ /* 控制 SVG 圖標樣式 */
+.trip-logo {
+  display: block;    /* 變成區塊元素，方便置中 */
+  margin: 0 auto 20px; /* `0 auto` 讓圖片在中間置中，`20px` 讓它跟下方的字保持距離 */
+  width: 48px;       /* 控制 SVG 的顯示寬度，你可以自由調整這個數字 */
+  height: auto;      /* 讓高度依比例自動縮放，圖片才不會變形 */
+  color: #4d7a52;    /* 這個最關鍵！設定 `fill="currentColor"` 的部分會變成這個顏色 */
+} 
   
 .reading-trip h3 {
   font-size: 1.2rem;   /* 控制字體大小 */
